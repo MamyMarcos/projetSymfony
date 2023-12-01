@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vous
+{% endblock %}
+
+{% block body %}
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
+    <style>
+
+        .container {
+            text-align: center;
+
+        }
+    </style>
+
+    <div class="jumbotron">
+        <h3 class="display-4">Résultat de vos recherches</h3>
+        <form method="POST" action="{{ path('recherchePage') }}">
+        </form>
+    </div>
+    
+    {%for person in listePersonnes %}
+        <div
+            class="card" style="width: 25%;margin-left:40%;margin-right:40%;">
+            {# <img class="card-img-top" style="max-width: 100%;max-height: 100%;" src="{{Serie.image}}" alt=""> #}
+            <div class="card-body">
+                <h5 class="card-title">{{person.id}}</h5>
+                <p class="card-text">{{person.nom}}</p>
+
+
+                {# <a href="{{path('detailsPersonne', {'id':personne.id})}}" class="btn btn-primary" style="margin-left:30%;">En savoir plus</a> #}
+            </div>
+        </div>
+    {%endfor %}
+{% endblock %}

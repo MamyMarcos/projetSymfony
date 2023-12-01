@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de {{ person.nom }} {{ person.prenom }}{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">
+            <h1 class="text-center">{{ block('title') }}</h1>
+          </div>
+          <div class="card-body">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <th scope="row">ID</th>
+                  <td>{{ person.id }}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Nom</th>
+                  <td>{{ person.nom }}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Prénom</th>
+                  <td>{{ person.prenom }}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Date de naissance</th>
+                  <td>{{ person.date_naissance.format('d/m/Y') }}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Email</th>
+                  <td>{{ person.email }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card-footer text-center">
+            <a href="{{ path('app_person_index') }}" class="btn btn-outline-primary">Retour à la liste</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
